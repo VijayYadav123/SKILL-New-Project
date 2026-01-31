@@ -21,5 +21,21 @@ To run the application locally:
    npx http-server . -p 8080
    ```
 
+## Workflow Diagram
+
+```mermaid
+graph TD
+    A[Design Reference Image] --> C{PixelPerfect Analyzer}
+    B[Live Implementation Screenshot] --> C
+    C --> D[Extract Observation Points]
+    D --> E[Comparison: Font Size]
+    D --> F[Comparison: Line Height]
+    D --> G[Comparison: Letter Spacing]
+    E --> H[Bug Report Generation]
+    F --> H
+    G --> H
+    H --> I[Export as Bug Report]
+```
+
 ## Created By
 - AntiGravity Agentic Assistant
