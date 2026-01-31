@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPerfect | Visual UI Reviewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    
+    <header>
+        <div class="logo">
+            <span class="dot"></span>
+            <h1>PixelPerfect</h1>
+        </div>
+        <p class="subtitle">AI-Powered Visual Regression Analysis</p>
+    </header>
+
+    <main>
+        <section class="upload-container">
+            <div class="upload-card" id="design-upload">
+                <h3>Design Reference</h3>
+                <p>Upload Figma Export or Design Mockup</p>
+                <div class="drop-zone" onclick="document.getElementById('design-input').click()">
+                    <span class="icon">🖼️</span>
+                    <p>Click or drag image here</p>
+                    <input type="file" id="design-input" accept="image/*" hidden>
+                </div>
+                <div class="preview" id="design-preview"></div>
+            </div>
+
+            <div class="upload-card" id="actual-upload">
+                <h3>Live Implementation</h3>
+                <p>Upload Screenshot of the Developed Site</p>
+                <div class="drop-zone" onclick="document.getElementById('actual-input').click()">
+                    <span class="icon">🌐</span>
+                    <p>Click or drag image here</p>
+                    <input type="file" id="actual-input" accept="image/*" hidden>
+                </div>
+                <div class="preview" id="actual-preview"></div>
+            </div>
+        </section>
+
+        <section class="controls">
+            <button id="compare-btn" class="cta-button">
+                <span class="btn-text">Extract Observation Points</span>
+                <span class="btn-glow"></span>
+            </button>
+        </section>
+
+        <section id="results" class="results-section hidden">
+            <div class="results-header">
+                <h2>Analysis Report</h2>
+                <div class="badge">3 Discrepancies Found</div>
+            </div>
+            
+            <div class="report-table-wrapper">
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Attribute</th>
+                            <th>Design (Expected)</th>
+                            <th>Actual</th>
+                            <th>Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody id="report-body">
+                        <!-- Results will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="actions">
+                <button class="secondary-btn">Export as Bug Report</button>
+                <button class="secondary-btn">Download PDF</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
